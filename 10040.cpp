@@ -2,11 +2,13 @@
 
 int main() {
     int number;
+    int result;
     std::cin >> number;
     if (number >= 10 && number < 100) {
-        std::cout << 1 << std::endl;
+        result = 1;
     } else {
-        std::cout << 0 << std::endl;
+        result = 0;
     }
+    std::cout << result << "\n";
     return 0;
 }

@@ -5,6 +5,6 @@
 int main() {
     float number;
     std::cin >> number;
-    std::cout << std::fixed << std::setprecision(2) << sqrt(pow(number, 2)) << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << sqrt(pow(number, 2)) << "\n";
     return 0;
 }

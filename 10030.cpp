@@ -3,6 +3,6 @@
 int main() {
     char lower;
     std::cin >> lower;
-    std::cout << char(toupper(lower)) << std::endl;
+    std::cout << static_cast<char>(std::toupper(lower)) << "\n";
     return 0;
 }

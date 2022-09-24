@@ -13,7 +13,7 @@ int main() {
         std::cout << 7 << " ";
     }
     if (number % 3 != 0 && number % 5 != 0 && number % 7 != 0) {
-        std::cout << "无" << std::endl;
+        std::cout << "无" << "\n";
     }
     return 0;
 }

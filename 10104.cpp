@@ -1,35 +1,36 @@
 #include <iostream>
 #include <string>
 
-std::string reverse_dna(const std::string& dna);
-char reverse_letter(char dna_letter);
+std::string reverseDna(const std::string &dna);
+
+char reverseLetter(char dnaLetter);
 
 int main() {
     std::string dna;
-    std::getline(std::cin, dna);
-    std::cout << reverse_dna(dna);
+    (void) std::getline(std::cin, dna);
+    std::cout << reverseDna(dna);
     return 0;
 }
 
-std::string reverse_dna(const std::string& dna) {
-    std::string reversed_dna;
-    for (char letter : dna) {
-        reversed_dna += reverse_letter(letter);
+std::string reverseDna(const std::string &dna) {
+    std::string reversedDna;
+    for (char letter: dna) {
+        reversedDna += reverseLetter(letter);
     }
-    return reversed_dna;
+    return reversedDna;
 }
 
-char reverse_letter(char dna_letter) {
-    if (dna_letter == 'A') {
+char reverseLetter(char dnaLetter) {
+    if (dnaLetter == 'A') {
         return 'T';
     }
-    if (dna_letter == 'T') {
+    if (dnaLetter == 'T') {
         return 'A';
     }
-    if (dna_letter == 'G') {
+    if (dnaLetter == 'G') {
         return 'C';
     }
-    if (dna_letter == 'C') {
+    if (dnaLetter == 'C') {
         return 'G';
     }
     return 0;
