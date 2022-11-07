@@ -1,6 +1,6 @@
 #include <iostream>
 
-int factorial(int num);
+long long factorial(long long num);
 
 int main() {
     int num;
@@ -9,8 +9,8 @@ int main() {
     return 0;
 }
 
-int factorial(int num) {
-    if (num == 1) {
+long long factorial(long long num) {
+    if (num == 0 || num == 1) {
         return 1;
     }
     return num * factorial(num - 1);

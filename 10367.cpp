@@ -2,7 +2,9 @@
 #include <cmath>
 
 int main() {
-    int h, t, o;
+    int h;
+    int t;
+    int o;
     for (int i = 100; i < 1000; i++) {
         o = i % 10;
         t = i / 10 % 10;

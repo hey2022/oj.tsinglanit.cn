@@ -1,25 +1,42 @@
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 #include <algorithm>
 
-struct student {
-    int score;
+class student {
+private:
     std::string name;
+    int score;
+public:
+    student(int score, std::string name) : score(score), name(std::move(name)) {}
+
+    std::string getName() {
+        return name;
+    }
+
+    [[nodiscard]] int getScore() const {
+        return score;
+    }
 };
 
-int main() {
-    int n_students;
-    std::cin >> n_students;
-    std::vector<student> student_info;
-    for (int i = 0; i < n_students; ++i) {
-        student temp_student;
-        std::cin >> temp_student.score >> temp_student.name;
-        student_info.push_back(temp_student);
-    }
+bool comparator(const student &a, const student &b);
 
-    for (auto & i : student_info) {
-        std::cout << i.score << " " << i.name << "\n";
+int main() {
+    int nStudents;
+    std::cin >> nStudents;
+    std::vector<student> students;
+    int score;
+    std::string name;
+    for (int i = 0; i < nStudents; ++i) {
+        std::cin >> score >> name;
+        (void) students.emplace_back(score, name);
     }
+    auto it = std::min_element(students.begin(), students.end(), comparator);
+    std::cout << it->getName();
     return 0;
+}
+
+bool comparator(const student &a, const student &b) {
+    return a.getScore() < b.getScore();
 }

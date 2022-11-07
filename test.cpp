@@ -1,21 +1,18 @@
 #include <iostream>
-#include <string>
-#include <cctype>
+#include <algorithm>
+#include <vector>
 
 int main() {
-    std::string sentence;
-    bool capital = true;
-    (void) std::getline(std::cin, sentence);
-    for (char & i : sentence) {
-        if (capital) {
-            i = std::toupper(i);
-            capital = false;
-        } else if (i == ' ') {
-            capital = true;
-        } else {
-            i = std::tolower(i);
-        }
+    std::vector<int> array;
+    int size;
+    std::cin >> size;
+    for (int i = 0; i < size; ++i) {
+        int temp;
+        std::cin >> temp;
+        array.push_back(temp);
     }
-    std::cout << sentence << "\n";
+    std::make_heap(array.begin(), array.end());
+    std::sort_heap(array.begin(), array.end());
+    for (int i: array) { std::cout << i << " "; }
     return 0;
 }

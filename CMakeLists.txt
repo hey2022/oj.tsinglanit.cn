@@ -3,4 +3,4 @@ project(oj_tsinglanit_cn)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(oj_tsinglanit_cn 2112.cpp)
+add_executable(oj_tsinglanit_cn test.cpp)

@@ -1,17 +1,17 @@
 #include <iostream>
 
-int factorial(int num);
+int sum(int num);
 
 int main() {
     int num;
     std::cin >> num;
-    std::cout << factorial(num);
+    std::cout << sum(num);
     return 0;
 }
 
-int factorial(int num) {
+int sum(int num) {
     if (num == 1) {
         return 1;
     }
-    return num * factorial(num - 1);
+    return num + sum(num - 1);
 }

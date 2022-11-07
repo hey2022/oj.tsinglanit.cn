@@ -1,24 +1,42 @@
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
-struct students {
+class student {
+private:
     std::string name;
-    char gender{};
-    int age{};
+    char gender;
+    int age;
+public:
+    student(std::string name, char gender, int age) : name(std::move(name)), gender(gender), age(age) {}
+
+    std::string getName() {
+        return name;
+    }
+
+    [[nodiscard]] char getGender() const {
+        return gender;
+    }
+
+    [[nodiscard]] int getAge() const {
+        return age;
+    }
 };
 
 int main() {
-    int n_students;
-    std::cin >> n_students;
-    std::vector<students> student_info;
-    for (int i = 0; i < n_students; ++i) {
-        students temp_student;
-        std::cin >> temp_student.name >> temp_student.gender >> temp_student.age;
-        student_info.push_back(temp_student);
+    int nStudents;
+    std::cin >> nStudents;
+    std::vector<student> students;
+    std::string name;
+    char gender;
+    int age;
+    for (int i = 0; i < nStudents; ++i) {
+        std::cin >> name >> gender >> age;
+        (void) students.emplace_back(name, gender, age);
     }
-    for (auto & i : student_info) {
-        std::cout << i.name << " " << i.gender << " " <<i.age << "\n";
+    for (student i: students) {
+        std::cout << i.getName() << " " << i.getGender() << " " << i.getAge() << "\n";
     }
     return 0;
 }
