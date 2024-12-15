@@ -1,4 +1,2 @@
 # oj.tsinglanit.cn
-oj.tsinglanit.cn
-
-Sync cpp file across computers
+Repository to store my solutions to problems in [oj.tsinglanit.cn](http://oj.tsinglanit.cn/)
